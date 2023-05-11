@@ -9,7 +9,7 @@ authRouter.post('/', (req, res) => {
 
     const {name, password} = req.body
     db_connection.query('select * from user where name = ? and password = ?', [name, password], (error, result) => { 
-        if(error) return res.status(500).json({error: 'An error occured'})
+        if(error) return res.status(500).json({message: error})
         if(result.length === 0) return res.status(401).json({error: 'Invalid username or password'})
         
         const user_id = result[0].id
