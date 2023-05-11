@@ -1,7 +1,9 @@
 const express = require('express')
 const router = require('./routes')
 const cors = require('cors')
+const env = require('dotenv')
 
+env.config({path: "./.env"})
 const app = express()
 app.use(express.json())
 // app.use(cors({ 
@@ -16,5 +18,5 @@ app.use((req, res, next) => {
   
     next();
   });
-app.listen(3000, () => console.log('Server up and running'))
+app.listen(process.env.PORT, () => console.log('Server up and running'))
 app.use('/api/mbl/', router)
