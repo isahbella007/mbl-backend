@@ -14,7 +14,7 @@ const db_connection = mysql.createPool({
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE, 
-  port: process.env.MYSQLHOST
+  port: process.env.MYSQLPORT
 })
 db_connection.getConnection(function(err, connection){ 
   if(err){ 
