@@ -20,6 +20,3 @@ app.use((req, res, next) => {
   });
 app.listen(process.env.PORT, () => console.log('Server up and running'))
 app.use('/api/mbl/', router)
-// console.log(process.env.MYSQLUSER)
-// console.log(process.env.DB_DATABASE)
-console.log(process.env.MYSQLHOST, process.env.MYSQLUSER, process.env.MYSQLPASSWORD, process.env.MYSQLDATABASE,  process.env.MYSQLPORT)
