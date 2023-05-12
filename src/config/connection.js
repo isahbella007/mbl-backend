@@ -12,12 +12,14 @@ const db_connection = mysql.createPool({
   database: process.env.MYSQLDATABASE, 
   port: process.env.MYSQLHOST
 })
-db_connection.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Connected to the database ");
+db_connection.getConnection( function (err, connection){ 
+  if(err){ 
+    connection.release()
+    console.log("Error getting db_connection ", err)
+    throw err
+  }else{ 
+    console.log("Connected to the database")
   }
-});
+})
 
 module.exports = db_connection
